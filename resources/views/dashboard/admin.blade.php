@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin</title>
+    @vite('resources/css/app.css')
+</head>
+<body class="bg-emerald-50 flex items-center justify-center min-h-screen">
+    <div class="text-center">
+        <h1 class="text-3xl font-bold text-emerald-700">Ini Dashboard Admin</h1>
+        <p class="text-gray-600 mt-2">Selamat datang di halaman dashboard admin</p>
+
+        <a href="/logout" class="mt-6 inline-block bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700 transition">
+            Logout
+        </a>
+    </div>
+</body>
+</html>
