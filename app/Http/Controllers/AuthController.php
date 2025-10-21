@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Http\Request;
 use App\Models\Pengguna;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+use Exception;
 
 class AuthController extends Controller
 {
@@ -65,5 +68,36 @@ class AuthController extends Controller
         session()->flush();
         return redirect('/login');
     }
-}
 
+    // === GOOGLE LOGIN ===
+    public function redirectToGoogle()
+    {
+        return Socialite::driver('google')->redirect();
+    }
+
+    public function handleGoogleCallback()
+    {
+        try {
+            $googleUser = Socialite::driver('google')->user();
+
+            // Cari pengguna berdasarkan email
+            $user = Pengguna::where('email', $googleUser->getEmail())->first();
+
+            // Jika belum ada, buat akun baru
+            if (!$user) {
+                $user = Pengguna::create([
+                    'nama' => $googleUser->getName(),
+                    'email' => $googleUser->getEmail(),
+                    'password' => Hash::make(uniqid()), // password acak
+                ]);
+            }
+
+            // Simpan session dan arahkan ke dashboard user
+            session(['role' => 'user', 'nama' => $user->nama]);
+            return redirect('/dashboard-user');
+
+        } catch (Exception $e) {
+            return redirect('/login')->with('error', 'Gagal login dengan Google.');
+        }
+    }
+}

@@ -42,6 +42,7 @@
         </div>
 
         <button type="button" class="w-full border border-gray-300 py-2 rounded-lg flex items-center justify-center hover:bg-gray-50">
+            <a href="{{ route('google.login') }}">
           <img src="https://www.svgrepo.com/show/475656/google-color.svg" class="w-5 h-5 mr-2" alt="Google">
           <span class="text-gray-700 text-sm font-medium">Lanjutkan dengan Google</span>
         </button>

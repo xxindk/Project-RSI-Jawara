@@ -35,6 +35,7 @@
       </div>
 
       <button class="w-full border py-2 rounded-lg flex items-center justify-center gap-2">
+        <a href="{{ route('google.login') }}">
         <img src="https://www.svgrepo.com/show/475656/google-color.svg" class="w-5 h-5">
         Masuk dengan Google
       </button>
