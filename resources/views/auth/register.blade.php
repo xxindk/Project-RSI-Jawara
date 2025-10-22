@@ -47,8 +47,12 @@
           <label class="block mb-1 text-sm text-gray-700">Password</label>
           <input type="password" name="password" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-emerald-400 focus:outline-none" required>
         </div>
-
+<div class="mb-4">
+  <label class="block mb-1 text-sm text-gray-700">Konfirmasi Password</label>
+  <input type="password" name="password_confirmation" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-emerald-400 focus:outline-none" required>
+</div>
         <p class="text-xs text-gray-500 mb-3">Dengan mengklik daftar, Anda menyetujui syarat dan ketentuan.</p>
+
 
         <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-2 rounded-lg font-medium transition">Daftar</button>
 

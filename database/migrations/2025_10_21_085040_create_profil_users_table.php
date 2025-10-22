@@ -18,9 +18,7 @@ return new class extends Migration
         $table->date('tanggal_lahir')->nullable();
         $table->enum('jenis_kelamin', ['L', 'P'])->nullable();
         $table->text('alamat')->nullable();
-        $table->timestamp('tanggal_diupdate')->useCurrent();
         $table->timestamps();
-
         $table->foreign('id_pengguna')->references('id_pengguna')->on('penggunas')->onDelete('cascade');
     });
     }

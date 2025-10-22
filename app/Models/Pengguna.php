@@ -6,14 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pengguna extends Model
 {
+    protected $table = 'penggunas';
     protected $primaryKey = 'id_pengguna';
-    public $timestamps = false;
+    public $timestamps = true;
 
-    protected $fillable = ['nama', 'email', 'password', 'tanggal_dibuat', 'status_akun'];
+    protected $fillable = ['nama', 'email', 'password', 'status_akun'];
 
     public function profil()
     {
         return $this->hasOne(ProfilUser::class, 'id_pengguna');
     }
 }
-

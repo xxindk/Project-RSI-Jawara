@@ -46,10 +46,6 @@
 
         <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-2 rounded-lg font-medium transition">Masuk</button>
 
-        <div class="text-center text-sm text-gray-600 mt-3">
-          <a href="#" class="text-emerald-700 hover:underline">Lupa Password?</a>
-        </div>
-
         <div class="flex items-center my-4">
           <hr class="flex-1 border-gray-300">
           <span class="text-gray-500 text-sm mx-2">atau</span>
