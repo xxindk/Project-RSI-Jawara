@@ -5,9 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Daftar | Jawara</title>
 <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #FFF7EE;
+    }
+    .font-jawara {
+      font-family: 'Playfair Display', serif;
+    }
+  </style>
 </head>
-<body class="bg-[#FFF7EE] min-h-screen flex">
-  <div class="w-1/2 flex items-center justify-center">
+
+<body class="bg-[#FFF7EE] min-h-screen flex relative overflow-hidden">
+
+  <!-- Logo di pojok kiri atas -->
+  <div class="absolute top-6 left-10">
+    <h1 class="text-3xl font-extrabold text-[#6B3E12] tracking-wide">JAWARA</h1>
+  </div>
+
+  <!-- Kiri: Form -->
+  <div class="w-1/2 flex items-center justify-center z-10">
     <div class="bg-white rounded-2xl shadow-lg w-4/5 max-w-md p-8">
       <h2 class="text-2xl font-semibold text-emerald-700 mb-2">Daftar Sekarang</h2>
       <p class="text-gray-600 text-sm mb-6">Isi formulir ini untuk membuat akun</p>
@@ -39,12 +58,6 @@
           <hr class="flex-1 border-gray-300">
         </div>
 
-        <button type="button" class="w-full border border-gray-300 py-2 rounded-lg flex items-center justify-center hover:bg-gray-50">
-            <a href="{{ route('google.login') }}">
-          <img src="https://www.svgrepo.com/show/475656/google-color.svg" class="w-5 h-5 mr-2" alt="Google">
-          <span class="text-gray-700 text-sm font-medium">Lanjutkan dengan Google</span>
-        </button>
-
         <p class="text-center text-sm mt-4 text-gray-700">
           Sudah punya akun?
           <a href="{{ route('login') }}" class="text-emerald-700 font-medium hover:underline">Masuk</a>
@@ -52,14 +65,22 @@
       </form>
     </div>
   </div>
-  <div class="w-1/2 flex flex-col items-center justify-center text-center px-10">
-    <h1 class="text-4xl font-bold mb-2">
-      <span class="text-gray-800">Sugeng rawuh,</span> <span class="text-orange-600">Jawara!</span>
+
+  <!-- Kanan: Ilustrasi -->
+  <div class="w-1/2 flex flex-col items-start justify-center text-left px-16 relative overflow-visible">
+    <h1 class="text-5xl font-extrabold mb-3 leading-tight font-jawara">
+      <span class="text-gray-900">Sugeng rawuh,</span>
+      <span class="text-[#D97706]"> Jawara!</span>
     </h1>
-    <p class="text-gray-700 text-lg leading-relaxed mb-6">
+    <p class="text-gray-800 text-lg mb-6 w-3/4">
       Lanjutkan petualanganmu dalam belajar Bahasa Jawa dan temukan hal-hal baru setiap harinya.
     </p>
-    <img src="{{ asset('images/jawara-illustration.png') }}" alt="Ilustrasi Jawara" class="w-80">
+
+    <img 
+      src="{{ asset('images/jawara-illustration.png') }}"
+      alt="Ilustrasi Jawara"
+      class="absolute bottom-[-30px] right-0 w-[520px] scale-110 drop-shadow-lg select-none pointer-events-none"
+    >
   </div>
 
 </body>
