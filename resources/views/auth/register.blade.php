@@ -22,7 +22,7 @@
 
   <!-- Logo di pojok kiri atas -->
   <div class="absolute top-6 left-10">
-    <h1 class="text-3xl font-extrabold text-[#6B3E12] tracking-wide">JAWARA</h1>
+    <h1 class="text-3xl font-extrabold text-[#6B3E12] tracking-wide font-jawara">JAWARA</h1>
   </div>
 
   <!-- Kiri: Form -->
@@ -71,7 +71,7 @@
   </div>
 
   <!-- Kanan: Ilustrasi -->
-  <div class="w-1/2 flex flex-col items-start justify-center text-left px-16 relative overflow-visible">
+  <div class="w-1/2 flex flex-col items-start justify-center text-left px-13 relative overflow-visible">
     <h1 class="text-5xl font-extrabold mb-3 leading-tight font-jawara">
       <span class="text-gray-900">Sugeng rawuh,</span>
       <span class="text-[#D97706]"> Jawara!</span>
