@@ -4,11 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Daftar | Jawara</title>
-  @vite('resources/css/app.css')
+<script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-[#FFF7EE] min-h-screen flex">
-
-  <!-- Kiri: Form -->
   <div class="w-1/2 flex items-center justify-center">
     <div class="bg-white rounded-2xl shadow-lg w-4/5 max-w-md p-8">
       <h2 class="text-2xl font-semibold text-emerald-700 mb-2">Daftar Sekarang</h2>
@@ -54,8 +52,6 @@
       </form>
     </div>
   </div>
-
-  <!-- Kanan: Ilustrasi -->
   <div class="w-1/2 flex flex-col items-center justify-center text-center px-10">
     <h1 class="text-4xl font-bold mb-2">
       <span class="text-gray-800">Sugeng rawuh,</span> <span class="text-orange-600">Jawara!</span>

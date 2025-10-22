@@ -4,13 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login - Jawara</title>
-  @vite('resources/css/app.css')
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body { font-family: 'Poppins', sans-serif; background-color: #fdf6f0; }
   </style>
 </head>
 <body class="flex min-h-screen">
-  <!-- Kiri: Form -->
   <div class="w-1/2 flex justify-center items-center bg-white shadow-lg">
     <div class="w-3/4 max-w-sm">
       <h2 class="text-2xl font-bold text-green-700 mb-2">Selamat Datang!</h2>
@@ -46,7 +45,7 @@
     </div>
   </div>
 
-  <!-- Kanan: Ilustrasi -->
+
   <div class="w-1/2 bg-[#fdf6f0] flex flex-col justify-center items-center p-10">
     <h1 class="text-3xl font-bold">Sugeng rawuh, <span class="text-orange-600">Jawara!</span></h1>
     <p class="text-gray-700 text-center mt-3 max-w-md">
