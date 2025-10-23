@@ -30,14 +30,19 @@
   <div class="w-1/2 flex justify-center items-center z-10">
     <div class="bg-white rounded-2xl shadow-lg w-4/5 max-w-md p-8">
       <h2 class="text-2xl font-semibold text-emerald-700 mb-2">Selamat Datang!</h2>
-      <p class="text-gray-600 mb-6 text-sm">Isi formulir ini untuk masuk ke aplikasi</p>
+      <p class="text-gray-600 mb-4 text-sm">Isi formulir ini untuk masuk ke aplikasi</p>
 
       <form method="POST" action="{{ route('login.post') }}">
         @csrf
+          @if ($errors->any())
+      <span class="mb-4 text-sm text-red-600">{{ $errors->first() }}</span>
+  @endif
         <div class="mb-4">
           <label class="block text-sm mb-1 text-gray-700">Email</label>
           <input type="email" name="email" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-emerald-400 focus:outline-none" required>
         </div>
+        
+
 
         <div class="mb-4">
           <label class="block text-sm mb-1 text-gray-700">Password</label>
@@ -78,6 +83,9 @@
       class="absolute bottom-[-30px] right-0 w-[520px] scale-110 drop-shadow-lg select-none pointer-events-none"
     >
   </div>
+<form method="POST" action="{{ route('login.post') }}">
+  @csrf
+
 
 </body>
 </html>
