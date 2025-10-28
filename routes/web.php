@@ -50,4 +50,3 @@ Route::get('/reflection-list', [ReflectionController::class, 'list'])->name('ref
 Route::get('/reflection/{id}/edit', [ReflectionController::class, 'edit'])->name('reflection.edit');
 Route::put('/reflection/{id}', [ReflectionController::class, 'update'])->name('reflection.update');
 Route::delete('/reflection/{id}', [ReflectionController::class, 'destroy'])->name('reflection.destroy');
->>>>>>> fa2a91af9d633e99d7d3cfde26f2ff1066ab49f5
