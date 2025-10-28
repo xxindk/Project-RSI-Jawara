@@ -183,16 +183,22 @@
                     @endif
                 </td>
 
-                <td class="aksi">
-                    <a href="{{ route('materi.edit', $materi->id_materi) }}"><i class="fa-solid fa-pen"></i></a>
-                    <form action="{{ route('materi.destroy', $materi->id_materi) }}" method="POST" style="display:inline;" onsubmit="return confirm('Yakin ingin menghapus?')">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" style="background:none;border:none;padding:0;">
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
-                    </form>
-                </td>
+<td class="aksi">
+    <!-- Edit (pensil) kuning -->
+    <a href="{{ route('materi.edit', $materi->id_materi) }}">
+        <i class="fa-solid fa-pen" style="color: #FFD700;"></i>
+    </a>
+
+    <!-- Hapus (tempat sampah) merah -->
+    <form action="{{ route('materi.destroy', $materi->id_materi) }}" method="POST" style="display:inline;" onsubmit="return confirm('Yakin ingin menghapus?')">
+        @csrf
+        @method('DELETE')
+        <button type="submit" style="background:none;border:none;padding:0;">
+            <i class="fa-solid fa-trash" style="color: #FF0000;"></i>
+        </button>
+    </form>
+</td>
+
             </tr>
             @empty
             <tr>
