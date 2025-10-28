@@ -35,7 +35,7 @@
     /* ===== TABEL ===== */
     .table-container {
         width: 100%;
-        overflow-x: hidden; /* cegah geser kanan */
+        overflow-x: auto; /* jika sangat sempit, baru bisa scroll */
     }
 
     table {
@@ -55,11 +55,12 @@
 
     th, td {
         text-align: left;
-        padding: 12px 14px;
+        padding: 10px 12px;
         font-size: 14px;
         border-bottom: 1px solid #f0e0d0;
         vertical-align: middle;
         word-wrap: break-word;
+        white-space: normal;
     }
 
     th {
@@ -70,7 +71,7 @@
         border-bottom: none;
     }
 
-    /* Potong teks 3 baris */
+    /* Potong teks maksimal 3 baris */
     .truncate-3 {
         display: -webkit-box;
         -webkit-line-clamp: 3;
@@ -92,21 +93,48 @@
     }
 
     img.thumb {
-        width: 70px;
-        height: 70px;
+        width: 60px;
+        height: 60px;
         border-radius: 8px;
         object-fit: cover;
     }
 
-    /* Atur lebar kolom agar pas tanpa overflow */
-    th:nth-child(1) { width: 40px; }
-    th:nth-child(2) { width: 150px; }
-    th:nth-child(3) { width: 230px; }
-    th:nth-child(4) { width: 120px; }
-    th:nth-child(5) { width: 80px; }
-    th:nth-child(6) { width: 230px; }
-    th:nth-child(7) { width: 120px; }
-    th:nth-child(8) { width: 80px; }
+    /* ✅ Lebar kolom disesuaikan proporsional agar tidak overflow */
+    th:nth-child(1) { width: 4%; }   /* No */
+    th:nth-child(2) { width: 12%; }  /* Judul */
+    th:nth-child(3) { width: 20%; }  /* Deskripsi */
+    th:nth-child(4) { width: 10%; }  /* Tingkatan */
+    th:nth-child(5) { width: 8%; }   /* Status */
+    th:nth-child(6) { width: 22%; }  /* Teks materi */
+    th:nth-child(7) { width: 14%; }  /* Gambar */
+    th:nth-child(8) { width: 10%; }  /* Aksi */
+
+    /* ✅ Responsive fix - biar tidak kepotong di resolusi kecil */
+    @media (max-width: 1366px) {
+        th, td {
+            font-size: 13px;
+            padding: 8px 10px;
+        }
+
+        img.thumb {
+            width: 50px;
+            height: 50px;
+        }
+
+        .btn-tambah {
+            padding: 6px 12px;
+            font-size: 13px;
+        }
+    }
+
+    @media (max-width: 992px) {
+        .table-container {
+            overflow-x: auto; /* baru scroll jika layar kecil banget */
+        }
+        table {
+            min-width: 800px;
+        }
+    }
 </style>
 
 <div class="header">
@@ -143,7 +171,7 @@
                 <td>{{ $materi->modul->status ? 'Aktif' : 'Nonaktif' }}</td>
 
                 {{-- Teks materi --}}
-                <td class="truncate-4">
+                <td class="truncate-3">
                     {{ $materi->konten_teks ?? '' }}
                 </td>
 
@@ -151,18 +179,26 @@
                     @if($materi->konten_gambar)
                         <img src="{{ asset('storage/' . $materi->konten_gambar) }}" alt="Materi" class="thumb">
                     @else
-                        <span style="color:#aaa;">Tidak ada gambar</span>
+                        <span style="color:#aaa;">Tidak ada</span>
                     @endif
                 </td>
 
                 <td class="aksi">
-                    <a href="{{ route('materi.edit', $materi->id_materi) }}"><i class="fa-solid fa-pen"></i></a>
-                    <form action="{{ route('materi.destroy', $materi->id_materi) }}" method="POST" style="display:inline;" onsubmit="return confirm('Yakin ingin menghapus?')">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" style="background:none;border:none;padding:0;"><i class="fa-solid fa-trash"></i></button>
-                    </form>
-                </td>
+    <!-- Edit (pensil) kuning -->
+    <a href="{{ route('materi.edit', $materi->id_materi) }}">
+        <i class="fa-solid fa-pen" style="color: #FFD700;"></i>
+    </a>
+
+    <!-- Hapus (tempat sampah) merah -->
+    <form action="{{ route('materi.destroy', $materi->id_materi) }}" method="POST" style="display:inline;" onsubmit="return confirm('Yakin ingin menghapus?')">
+        @csrf
+        @method('DELETE')
+        <button type="submit" style="background:none;border:none;padding:0;">
+            <i class="fa-solid fa-trash" style="color: #FF0000;"></i>
+        </button>
+    </form>
+</td>
+
             </tr>
             @empty
             <tr>

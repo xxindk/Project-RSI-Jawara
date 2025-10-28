@@ -4,32 +4,25 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalKonfirmasi = document.getElementById("modalKonfirmasi");
   const yakinBtn = document.getElementById("yakinBtn");
   const tidakBtn = document.getElementById("tidakBtn");
+  const form = document.getElementById("reflectionForm");
 
-  if (simpanBtn && modalKonfirmasi) {
-    simpanBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      modalKonfirmasi.classList.remove("hidden");
-    });
-  }
 
-  if (tidakBtn) {
-    tidakBtn.addEventListener("click", () => {
-      modalKonfirmasi.classList.add("hidden");
-    });
-  }
+  simpanBtn.addEventListener("click", () => {
+    modalKonfirmasi.classList.remove("hidden");
+  });
 
-  if (yakinBtn) {
-    yakinBtn.addEventListener("click", () => {
-      modalKonfirmasi.classList.add("hidden");
-      // Redirect ke halaman daftar refleksi
-      window.location.href = "/reflection-list";
-    });
-  }
 
-  if (batalBtn) {
-    batalBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      window.location.href = "/dashboard-user";
-    });
-  }
+  tidakBtn.addEventListener("click", () => {
+    modalKonfirmasi.classList.add("hidden");
+  });
+
+
+  yakinBtn.addEventListener("click", () => {
+    form.submit();
+  });
+
+
+  batalBtn.addEventListener("click", () => {
+    window.location.href = "/reflection-list";
+  });
 });
