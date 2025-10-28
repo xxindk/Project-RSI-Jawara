@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class FlashcardController extends Controller
 {
+    // ====== ADMIN ======
     public function index()
     {
         $flashcards = Flashcard::all();
@@ -48,7 +49,7 @@ class FlashcardController extends Controller
         return redirect()->route('flashcards.index')->with('success', 'Flashcard berhasil dihapus.');
     }
 
-    // ✅ Tambahkan method ini di bagian paling bawah
+    // ====== USER ======
     public function showForUser()
     {
         $flashcards = Flashcard::all();
