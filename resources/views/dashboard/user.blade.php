@@ -172,5 +172,7 @@
     @endforeach
   </div>
 </section>
+{{-- FOOTER --}}
+  @include('layoutscomponents.footer')
 
 
