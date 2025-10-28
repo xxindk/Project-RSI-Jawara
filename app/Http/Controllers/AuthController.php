@@ -47,7 +47,7 @@ class AuthController extends Controller
         $admin = Admin::where('email', $request->email)->first();
         if ($admin && Hash::check($request->password, $admin->password)) {
             session(['role' => 'admin', 'nama' => $admin->nama]);
-            return redirect('/dashboard-admin');
+            return redirect()->route('materi.index');
         }
 
         // Cek pengguna
