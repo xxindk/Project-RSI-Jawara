@@ -23,8 +23,6 @@ Route::get('/dashboard-user', function () {
     return view('dashboard.user');
 });
 
-
-
 Route::get('/dashboard-admin', function () {
     return view('dashboard.admin');
 });
@@ -41,6 +39,7 @@ Route::get('/', function () {
     return redirect()->route('reflection');
 });
 
+
 Route::get('/reflection', function () {
     return view('reflection');
 })->name('reflection');
@@ -49,8 +48,15 @@ Route::get('/reflection-list', function () {
     return view('reflection-list');
 })->name('reflection.list');
 
-Route::get('/reflection', [ReflectionController::class, 'index'])
-    ->name('reflection');
+Route::get('/reflection', [ReflectionController::class, 'index'])->name('reflection');
+Route::post('/reflection', [ReflectionController::class, 'store'])->name('reflection.store');
+
+
+Route::get('/reflection-list', [ReflectionController::class, 'list'])->name('reflection.list');
+Route::get('/reflection/{id}/edit', [ReflectionController::class, 'edit'])->name('reflection.edit');
+
+
+Route::get('/admin/materi-index', [MateriController::class, 'index'])->name('materi.index');
 
 Route::get('/reflection', [ReflectionController::class, 'index'])->name('reflection');
 Route::post('/reflection', [ReflectionController::class, 'store'])->name('reflection.store');
@@ -58,13 +64,4 @@ Route::get('/reflection-list', [ReflectionController::class, 'list'])->name('ref
 Route::get('/reflection/{id}/edit', [ReflectionController::class, 'edit'])->name('reflection.edit');
 Route::put('/reflection/{id}', [ReflectionController::class, 'update'])->name('reflection.update');
 Route::delete('/reflection/{id}', [ReflectionController::class, 'destroy'])->name('reflection.destroy');
-
-Route::get('/admin/materi-index', [MateriController::class, 'index'])->name('materi.index');
-
-Route::get('/materi', [MateriController::class, 'index'])->name('materi.index');
-Route::get('/materi/tambah', [MateriController::class, 'create'])->name('materi.create');
-Route::post('/materi/simpan', [MateriController::class, 'store'])->name('materi.store');
-Route::get('/materi/edit/{id}', [MateriController::class, 'edit'])->name('materi.edit');
-Route::post('/materi/update/{id}', [MateriController::class, 'update'])->name('materi.update');
-Route::delete('/materi/hapus/{id}', [MateriController::class, 'destroy'])->name('materi.destroy');
 
