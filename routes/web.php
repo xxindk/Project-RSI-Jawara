@@ -19,9 +19,10 @@ Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('/dashboard-user', function () {
-    return view('dashboard.user');
-});
+
+Route::get('/dashboard-user', [App\Http\Controllers\DashboardController::class, 'index'])
+    ->name('user.dashboard');
+
 Route::get('/dashboard-admin', function () {
     return view('dashboard.admin');
 });
@@ -67,5 +68,10 @@ Route::get('/materi', [MateriController::class, 'index'])->name('materi.index');
 Route::get('/materi/tambah', [MateriController::class, 'create'])->name('materi.create');
 Route::post('/materi/simpan', [MateriController::class, 'store'])->name('materi.store');
 Route::get('/materi/edit/{id}', [MateriController::class, 'edit'])->name('materi.edit');
-Route::post('/materi/update/{id}', [MateriController::class, 'update'])->name('materi.update');
+Route::put('/materi/update/{id}', [MateriController::class, 'update'])->name('materi.update');
 Route::delete('/materi/hapus/{id}', [MateriController::class, 'destroy'])->name('materi.destroy');
+
+Route::get('/user/materi/{id}', [MateriController::class, 'showUserMateri'])->name('user.materi');
+// Route::get('/user/flashcard/{id}', [FlashcardController::class, 'showForUser'])->name('user.flashcard');
+
+    

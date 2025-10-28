@@ -12,7 +12,6 @@ return new class extends Migration
             $table->id('id_materi');
             $table->unsignedBigInteger('id_modul');
             $table->text('konten_teks');
-            $table->string('konten_gambar')->nullable(); 
             $table->timestamps();
 
             $table->foreign('id_modul')->references('id_modul')->on('moduls')->onDelete('cascade');

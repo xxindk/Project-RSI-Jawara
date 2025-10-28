@@ -184,14 +184,6 @@
         <textarea name="konten_teks" rows="4">{{ old('konten_teks', $materi->konten_teks ?? '') }}</textarea>
       </div>
 
-      <div class="form-group">
-        <label>Gambar Materi</label>
-        <input type="file" name="konten_gambar">
-        @if(!empty($materi->konten_gambar))
-          <img src="{{ asset('storage/' . $materi->konten_gambar) }}" alt="Gambar Materi" class="preview-img">
-        @endif
-      </div>
-
       <div class="button-group">
         <a href="{{ route('materi.index') }}" class="btn btn-batal">Batal</a>
         <button type="submit" class="btn btn-simpan">

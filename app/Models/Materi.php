@@ -14,8 +14,7 @@ class Materi extends Model
 
     protected $fillable = [
         'id_modul',
-        'konten_teks',
-        'konten_gambar'
+        'konten_teks'
     ];
 
     public function modul()

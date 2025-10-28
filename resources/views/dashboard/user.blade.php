@@ -153,27 +153,38 @@
     Ayo! Latih Bahasa Jawamu di <span class="text-[#F4A261]">Jawara.</span>
   </h2>
 
-  <div class="flex flex-col items-center gap-6">
-    @foreach (range(1, 4) as $i)
-    <div class="flex items-center bg-white shadow-lg rounded-xl w-[60%] p-5 justify-between hover:shadow-xl transition">
-      <div class="flex items-center gap-5">
-        <img src="{{ asset('images/aksara.png') }}" alt="Aksara Jawa" class="w-16 h-16">
-        <div class="text-left">
-          <h3 class="text-lg font-semibold text-[#171717]">Modul {{ $i }}: Belajar Aksara Jawa</h3>
-          <p class="text-sm text-gray-500 mb-3">Mulai latihan menulis dan membaca aksara dasar</p>
+<div class="flex flex-col items-center gap-6">
+    @foreach ($moduls as $modul)
+        <div class="flex items-center bg-white shadow-lg rounded-xl w-[60%] p-5 justify-between hover:shadow-xl transition">
+            <div class="flex items-center gap-5">
+                <img src="{{ asset('images/aksara.png') }}" alt="Aksara Jawa" class="w-16 h-16">
+                <div class="text-left">
+                    <h3 class="text-lg font-semibold text-[#171717]">
+                        Modul {{ $modul->nomor_urut }}: {{ $modul->judul_modul }}
+                    </h3>
 
-          <!-- ✅ Tambahkan tiga tombol kecil -->
-          <div class="flex gap-2">
-            <a href="#" class="bg-[#F4A261] text-white text-sm px-3 py-1 rounded-full hover:bg-[#3A7773] transition">Materi</a>
-            <a href="#" class="bg-[#F4A261] text-white text-sm px-3 py-1 rounded-full hover:bg-[#3A7773] transition">Flashcard</a>
-            <a href="#" class="bg-[#F4A261] text-white text-sm px-3 py-1 rounded-full hover:bg-[#3A7773] transition">Game</a>
-          </div>
+                    <div class="flex gap-2 mt-2">
+                        <a href="{{ route('user.materi', $modul->id_modul) }}" 
+                           class="bg-[#F4A261] text-white text-sm px-3 py-1 rounded-full hover:bg-[#3A7773] transition">
+                           Materi
+                        </a>
+                        <a href="#" onclick="alert('Fitur Flashcard belum tersedia.'); return false;"
+                           class="bg-[#F4A261] text-white text-sm px-3 py-1 rounded-full hover:bg-[#3A7773] transition">
+                           Flashcard
+                        </a>
+                        <a href="#" onclick="alert('Fitur Game belum tersedia.'); return false;"
+                           class="bg-[#F4A261] text-white text-sm px-3 py-1 rounded-full hover:bg-[#3A7773] transition">
+                           Game
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
     @endforeach
-  </div>
+</div>
+
 </section>
+
 {{-- FOOTER --}}
   @include('layoutscomponents.footer')
 
