@@ -17,16 +17,14 @@ Route::post('/register', [AuthController::class, 'register'])->name('register.po
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 
-Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/dashboard-user', function () {
     return view('dashboard.user');
 });
-
 Route::get('/dashboard-admin', function () {
     return view('dashboard.admin');
 });
-
 Route::resource('flashcards', FlashcardController::class);
 
 Route::get('/admin/flashcards', [FlashcardController::class, 'index'])->name('flashcards.index'); 
@@ -35,9 +33,6 @@ Route::post('/flashcard', [FlashcardController::class, 'store'])->name('flashcar
 Route::put('/flashcard/{flashcard}', [FlashcardController::class, 'update'])->name('flashcard.update');
 Route::delete('/flashcard/{flashcard}', [FlashcardController::class, 'destroy'])->name('flashcard.destroy');
 Route::get('/flashcard-user', [FlashcardController::class, 'showForUser'])->name('flashcard.user');
-Route::get('/', function () {
-    return redirect()->route('reflection');
-});
 
 
 Route::get('/reflection', function () {
@@ -55,8 +50,6 @@ Route::post('/reflection', [ReflectionController::class, 'store'])->name('reflec
 Route::get('/reflection-list', [ReflectionController::class, 'list'])->name('reflection.list');
 Route::get('/reflection/{id}/edit', [ReflectionController::class, 'edit'])->name('reflection.edit');
 
-
-Route::get('/admin/materi-index', [MateriController::class, 'index'])->name('materi.index');
 
 Route::get('/reflection', [ReflectionController::class, 'index'])->name('reflection');
 Route::post('/reflection', [ReflectionController::class, 'store'])->name('reflection.store');
