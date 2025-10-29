@@ -132,15 +132,14 @@
     <div class="content">
         <div class="section">
             <h3>Deskripsi</h3>
-            <p>{{ $modul->deskripsi }}</p>
+            <p>{!! nl2br(e($modul->deskripsi)) !!}</p>
         </div>
 
         <hr>
 
         <div class="section">
             <h3>Materi</h3>
-            <p>{{ $materi->konten_teks }}</p>
-
+            <p>{!! nl2br(e($materi->konten_teks)) !!}</p>
             @if(!empty($materi->konten_gambar))
             <div class="image-container">
                 <img src="{{ asset('storage/' . $materi->konten_gambar) }}" alt="Gambar Materi">
