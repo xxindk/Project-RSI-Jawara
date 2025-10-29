@@ -55,4 +55,22 @@ class FlashcardController extends Controller
         $flashcards = Flashcard::all();
         return view('user.flashcard', compact('flashcards'));
     }
+
+    public function dashboardUser()
+{
+    $modulList = Flashcard::select('id_modul')
+        ->distinct()
+        ->orderBy('id_modul')
+        ->get();
+
+    return view('dashboard.user', compact('modulList'));
+}
+
+public function showByModule($modulId)
+{
+    $flashcards = Flashcard::where('id_modul', $modulId)->get();
+    return view('user.flashcard', compact('flashcards', 'modulId'));
+
+}
+
 }

@@ -179,7 +179,7 @@
 <body>
 
   <div class="flashcard-section">
-    <h2>Materi 1: Kata Benda</h2>
+    <h2> Materi {{ $modulId }}</h2>
 
     <div class="flashcard-container">
       @foreach ($flashcards->take(12) as $f)

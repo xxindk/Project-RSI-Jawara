@@ -32,6 +32,11 @@ Route::get('/dashboard-admin', function () {
 });
 Route::resource('flashcards', FlashcardController::class);
 
+Route::resource('flashcards', FlashcardController::class);
+
+Route::get('/flashcard/modul/{modulId}', [App\Http\Controllers\FlashcardController::class, 'showByModule'])
+    ->name('flashcard.showByModule');
+
 Route::get('/admin/flashcards', [FlashcardController::class, 'index'])->name('flashcards.index'); 
 Route::get('/flashcard', [FlashcardController::class, 'index'])->name('flashcard.index');
 Route::post('/flashcard', [FlashcardController::class, 'store'])->name('flashcard.store');
