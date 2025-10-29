@@ -5,6 +5,7 @@ use App\Http\Controllers\ReflectionController;
 use App\Http\Controllers\MateriController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FlashcardController;
+use App\Http\Controllers\DashboardController;
 
 
 Route::get('/', function () {
@@ -22,6 +23,9 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/dashboard-user', [App\Http\Controllers\DashboardController::class, 'index'])
     ->name('user.dashboard');
+Route::get('/profile', [App\Http\Controllers\DashboardController::class, 'profile'])
+    ->name('profile');
+
 
 Route::get('/dashboard-admin', function () {
     return view('dashboard.admin');
@@ -73,5 +77,6 @@ Route::delete('/materi/hapus/{id}', [MateriController::class, 'destroy'])->name(
 
 Route::get('/user/materi/{id}', [MateriController::class, 'showUserMateri'])->name('user.materi');
 // Route::get('/user/flashcard/{id}', [FlashcardController::class, 'showForUser'])->name('user.flashcard');
+
 
     
