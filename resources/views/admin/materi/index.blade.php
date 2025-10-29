@@ -26,6 +26,7 @@
         cursor: pointer;
         font-weight: 500;
         transition: 0.2s;
+        text-decoration: none;
     }
 
     .btn-tambah:hover {
