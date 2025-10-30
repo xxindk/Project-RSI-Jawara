@@ -13,10 +13,10 @@ class Materi extends Model
     public $timestamps = true;
 
     protected $fillable = [
-        'id_modul',
-        'konten_teks'
-    ];
-
+    'id_materi',
+    'id_modul',
+    'konten_teks',
+];
     public function modul()
     {
         return $this->belongsTo(Modul::class, 'id_modul', 'id_modul');

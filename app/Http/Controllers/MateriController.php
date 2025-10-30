@@ -57,8 +57,9 @@ class MateriController extends Controller
 
         // Simpan materi
         Materi::create([
-            'id_modul' => $modul->id_modul,
-            'konten_teks' => $validated['konten_teks'] ?? '',
+    'id_materi' => $modul->id_modul,
+    'id_modul' => $modul->id_modul,
+    'konten_teks' => $validated['konten_teks'] ?? '',
         ]);
 
         return redirect()->route('materi.index')->with('success', 'Materi berhasil disimpan.');
@@ -114,8 +115,12 @@ class MateriController extends Controller
         }
 
         $materi = Materi::with('modul')->findOrFail($id);
-        $materi->modul->delete(); // Hapus modul terkait
         $materi->delete();
+
+        if (Materi::count() === 0 && Modul::count() === 0) {
+    \DB::statement('ALTER TABLE materis AUTO_INCREMENT = 1;');
+    \DB::statement('ALTER TABLE moduls AUTO_INCREMENT = 1;');
+}
 
         return redirect()->route('materi.index')->with('success', 'Materi berhasil dihapus.');
     }

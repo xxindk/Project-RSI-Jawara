@@ -9,8 +9,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('materis', function (Blueprint $table) {
-            $table->id('id_materi');
-            $table->unsignedBigInteger('id_modul');
+            $table->unsignedBigInteger('id_materi')->primary();
+            $table->unsignedBigInteger('id_modul')->unique();
             $table->text('konten_teks');
             $table->timestamps();
 
