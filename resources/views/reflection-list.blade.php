@@ -4,39 +4,96 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Daftar Refleksi | Jawara</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Maragsa&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
     body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #FFF7EE;
-      overflow-x: hidden;
+      background-color: #FFF7F0;
+      font-family: 'Inter', sans-serif;
     }
-    .font-jawara {
-      font-family: 'Playfair Display', serif;
+    .font-maragsa {
+      font-family: 'Maragsa', serif;
+      letter-spacing: 0.5px;
+      font-weight: 400;
     }
+  </style>
   </style>
 </head>
 
 <body class="relative min-h-screen flex flex-col">
 
-  {{-- HEADER --}}
-  <header class="flex justify-between items-center px-10 py-6 bg-transparent relative z-20">
-    <h1 class="text-3xl font-extrabold text-[#6B3E12] tracking-wide font-jawara">JAWARA</h1>
+<!-- NAVBAR DASHBOARD USER -->
+<nav class="flex justify-between items-center px-12 py-6 bg-[#FFF7F0] z-20">
+  <!-- Logo -->
+  <div class="text-3xl font-maragsa font-semibold text-[#9A3B1B]">
+      JAWARA
+  </div>
 
-    <nav class="flex items-center space-x-8 text-sm text-gray-700">
-      <a href="#" class="hover:text-amber-600 transition">Home</a>
-      <a href="#" class="hover:text-amber-600 transition">Modul</a>
-      <a href="#" class="hover:text-amber-600 transition">Progress Tracker</a>
-      <a href="#" class="hover:text-amber-600 transition">Narahubung</a>
-    </nav>
+  <!-- Menu Tengah -->
+  <ul class="hidden md:flex gap-10 text-[#171717] font-medium">
+      <li><a href="#" class="hover:text-[#4C9894]">Home</a></li>
+      <li><a href="#" class="hover:text-[#4C9894]">Modul</a></li>
+      <li><a href="#" class="hover:text-[#4C9894]">Progress Tracker</a></li>
+      <li><a href="#" class="hover:text-[#4C9894]">Narahubung</a></li>
+  </ul>
 
-    <div class="flex items-center space-x-4">
-      <img src="{{ asset('images/profile.jpg') }}" class="w-10 h-10 rounded-full border-2 border-amber-500 object-cover" alt="User">
-      <a href="#" class="bg-amber-500 hover:bg-amber-600 text-white px-4 py-1 rounded-lg transition">Keluar</a>
-    </div>
-  </header>
+  <!-- Profil + Garis-Tiga -->
+  <div class="flex items-center space-x-4 relative">
+
+      <!-- Foto profil user -->
+      <img src="{{ asset('images/profil user.png') }}"
+           alt="User Avatar"
+           class="w-10 h-10 rounded-full object-cover border border-gray-300">
+
+      <!-- Icon Garis Tiga -->
+      <button id="menuToggle" class="flex flex-col justify-between w-6 h-4 focus:outline-none">
+          <span class="block w-full h-[3px] bg-[#171717] rounded"></span>
+          <span class="block w-full h-[3px] bg-[#171717] rounded"></span>
+          <span class="block w-full h-[3px] bg-[#171717] rounded"></span>
+      </button>
+
+      <!-- Dropdown Menu -->
+      <div id="dropdownMenu"
+           class="hidden absolute top-14 right-0 bg-white rounded-xl shadow-lg py-4 w-48 border border-gray-100 z-50">
+          
+          <!-- Profil -->
+          <a href="/profile" class="flex items-center px-5 py-2 hover:bg-gray-100 text-[#171717]">
+              <img src="{{ asset('images/Vector profil.png') }}" class="w-5 h-5 mr-3">
+              Profil
+          </a>
+
+          <!-- Logout -->
+          <form method="POST" action="{{ route('logout') }}">
+              @csrf
+              <button type="submit" class="w-full text-left flex items-center px-5 py-2 hover:bg-gray-100 text-[#171717]">
+                  <img src="{{ asset('images/Vector logout.png') }}" class="w-5 h-5 mr-3">
+                  Logout
+              </button>
+          </form>
+      </div>
+  </div>
+</nav>
+
+<script>
+const toggleBtn = document.getElementById('menuToggle');
+const dropdownMenu = document.getElementById('dropdownMenu');
+
+toggleBtn.addEventListener('click', () => {
+    dropdownMenu.classList.toggle('hidden');
+});
+
+// Klik di luar menu untuk nutup
+document.addEventListener('click', (e) => {
+    if (!toggleBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+        dropdownMenu.classList.add('hidden');
+    }
+});
+</script>
 
   {{-- ISI UTAMA --}}
   <main class="relative flex-1 px-10 py-16 flex flex-col items-center">
@@ -46,8 +103,8 @@
 
     <div class="relative bg-white bg-opacity-80 backdrop-blur-sm rounded-2xl shadow-xl w-full max-w-6xl p-10 z-10">
       <div class="flex justify-between items-center mb-8">
-        <h2 class="text-2xl font-semibold text-[#6B3E12]">Refleksi</h2>
-        <a href="{{ route('reflection') }}" class="bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700 transition">
+        <h2 class="text-2xl font-semibold text-[#171717]">Refleksi</h2>
+        <a href="{{ route('reflection') }}" class="bg-[#3A7773] text-white px-4 py-2 rounded-lg hover:bg-[#3A7773] transition">
           + Tambah Refleksi
         </a>
       </div>
@@ -73,22 +130,16 @@
 
               <div class="absolute bottom-3 right-4 flex space-x-3">
                 {{-- Tombol Edit --}}
-                <a href="{{ route('reflection.edit', $reflection->id) }}"
-                   class="text-amber-600 hover:text-amber-800 text-xl"
-                   title="Edit Refleksi">
-                  ✏️
+                <a href="{{ route('reflection.edit', $reflection->id) }}" title="Edit Refleksi">
+                <img src="{{ asset('images/vector pensil.png') }}" alt="Edit" class="w-4 h-5 object-contain hover:brightness-75">
                 </a>
 
                 {{-- Tombol Hapus --}}
-                <form action="{{ route('reflection.destroy', $reflection->id) }}"
-                      method="POST"
-                      onsubmit="return confirm('Hapus refleksi ini?')">
+                <form action="{{ route('reflection.destroy', $reflection->id) }}" method="POST" onsubmit="return confirm('Hapus refleksi ini?')">
                   @csrf
                   @method('DELETE')
-                  <button type="submit"
-                          class="text-red-600 hover:text-red-800 text-xl"
-                          title="Hapus Refleksi">
-                    🗑️
+                  <button type="submit" title="Hapus Refleksi">
+                    <img src="{{ asset('images/vector sampah.png') }}" alt="Hapus" class="w-4 h-4 object-contain hover:brightness-75">
                   </button>
                 </form>
               </div>
