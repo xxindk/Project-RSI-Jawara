@@ -6,7 +6,7 @@ use App\Http\Controllers\MateriController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FlashcardController;
 use App\Http\Controllers\DashboardController;
-
+use App\Http\Controllers\ProfileController;
 
 Route::get('/', function () {
     return redirect()->route('register');
@@ -83,5 +83,7 @@ Route::delete('/materi/hapus/{id}', [MateriController::class, 'destroy'])->name(
 Route::get('/user/materi/{id}', [MateriController::class, 'showUserMateri'])->name('user.materi');
 // Route::get('/user/flashcard/{id}', [FlashcardController::class, 'showForUser'])->name('user.flashcard');
 
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
 
     
