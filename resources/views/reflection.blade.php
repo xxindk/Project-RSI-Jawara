@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Refleksi | Jawara</title>
-      <!-- Fonts -->
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Maragsa&display=swap" rel="stylesheet">
 
@@ -38,7 +38,7 @@
       <li><a href="#" class="hover:text-[#4C9894]">Home</a></li>
       <li><a href="#" class="hover:text-[#4C9894]">Modul</a></li>
       <li><a href="#" class="hover:text-[#4C9894]">Progress Tracker</a></li>
-      <li><a href="#" class="hover:text-[#4C9894]">Narahubung</a></li>
+      <li><a href="{{ route('reflection.list') }}" class="hover:text-[#4C9894]">Riwayat Refleksi</a></li>
   </ul>
 
   <!-- Profil + Garis-Tiga -->

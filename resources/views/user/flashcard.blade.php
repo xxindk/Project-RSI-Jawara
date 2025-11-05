@@ -4,12 +4,100 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Flashcard User - JAWARA</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Maragsa&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      background-color: #FFF7F0;
+      font-family: 'Inter', sans-serif;
+    }
+    .font-maragsa {
+      font-family: 'Maragsa', serif;
+      letter-spacing: 0.5px;
+      font-weight: 400;
+    }
+  </style>
+</head>
+
+<body class="relative min-h-screen flex flex-col">
+
+<!-- NAVBAR DASHBOARD USER -->
+<nav class="flex justify-between items-center px-12 py-6 bg-[#FFF7F0] z-20">
+  <!-- Logo -->
+  <div class="text-3xl font-maragsa text-[#9A3B1B]">
+      JAWARA
+  </div>
+
+  <!-- Menu Tengah -->
+  <ul class="hidden md:flex gap-10 text-[#171717] font-medium">
+      <li><a href="#" class="hover:text-[#4C9894]">Home</a></li>
+      <li><a href="#" class="hover:text-[#4C9894]">Modul</a></li>
+      <li><a href="#" class="hover:text-[#4C9894]">Progress Tracker</a></li>
+      <li><a href="{{ route('reflection.list') }}" class="hover:text-[#4C9894]">Riwayat Refleksi</a></li>
+  </ul>
+
+  <!-- Profil + Garis-Tiga -->
+  <div class="flex items-center space-x-4 relative">
+
+      <!-- Foto profil user -->
+      <img src="{{ asset('images/profil user.png') }}"
+           alt="User Avatar"
+           class="w-10 h-10 rounded-full object-cover border border-gray-300">
+
+      <!-- Icon Garis Tiga -->
+      <button id="menuToggle" class="flex flex-col justify-between w-6 h-4 focus:outline-none">
+          <span class="block w-full h-[3px] bg-[#171717] rounded"></span>
+          <span class="block w-full h-[3px] bg-[#171717] rounded"></span>
+          <span class="block w-full h-[3px] bg-[#171717] rounded"></span>
+      </button>
+
+      <!-- Dropdown Menu -->
+      <div id="dropdownMenu"
+           class="hidden absolute top-14 right-0 bg-white rounded-xl shadow-lg py-4 w-48 border border-gray-100 z-50">
+          
+          <!-- Profil -->
+          <a href="/profile" class="flex items-center px-5 py-2 hover:bg-gray-100 text-[#171717]">
+              <img src="{{ asset('images/Vector profil.png') }}" class="w-5 h-5 mr-3">
+              Profil
+          </a>
+
+          <!-- Logout -->
+          <form method="POST" action="{{ route('logout') }}">
+              @csrf
+              <button type="submit" class="w-full text-left flex items-center px-5 py-2 hover:bg-gray-100 text-[#171717]">
+                  <img src="{{ asset('images/Vector logout.png') }}" class="w-5 h-5 mr-3">
+                  Logout
+              </button>
+          </form>
+      </div>
+  </div>
+</nav>
+
+<script>
+const toggleBtn = document.getElementById('menuToggle');
+const dropdownMenu = document.getElementById('dropdownMenu');
+
+toggleBtn.addEventListener('click', () => {
+    dropdownMenu.classList.toggle('hidden');
+});
+
+// Klik di luar menu untuk nutup
+document.addEventListener('click', (e) => {
+    if (!toggleBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+        dropdownMenu.classList.add('hidden');
+    }
+});
+</script>
 
   <style>
     body {
       background-color: #faf3e0;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Inter', sans-serif;
     }
 
     .flashcard-section {
@@ -22,8 +110,9 @@
     }
 
     h2 {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Maragsa', serif;
       font-weight: 700;
+      font-size: 56px;
       color: #3c2a1e;
       text-align: center;
       margin-bottom: 30px;

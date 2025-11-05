@@ -43,7 +43,7 @@
         <li><a href="#" class="hover:text-[#4C9894] {{ request()->is('home') ? 'text-[#4C9894]' : '' }}">Home</a></li>
         <li><a href="#" class="hover:text-[#4C9894] {{ request()->is('modul') ? 'text-[#4C9894]' : '' }}">Modul</a></li>
         <li><a href="#" class="hover:text-[#4C9894] {{ request()->is('progress') ? 'text-[#4C9894]' : '' }}">Progress Tracker</a></li>
-        <li><a href="#" class="hover:text-[#4C9894] {{ request()->is('narahubung') ? 'text-[#4C9894]' : '' }}">Narahubung</a></li>
+        <li><a href="{{ route('reflection.list') }}" class="hover:text-[#4C9894]">Riwayat Refleksi</a></li>
     </ul>
 
     <!-- Profil + Garis Tiga -->
