@@ -30,7 +30,7 @@
 <!-- NAVBAR DASHBOARD USER -->
 <nav class="flex justify-between items-center px-12 py-6 bg-[#FFF7F0] z-20">
   <!-- Logo -->
-  <div class="text-3xl font-maragsa font-semibold text-[#9A3B1B]">
+  <div class="text-3xl font-maragsa text-[#9A3B1B]">
       JAWARA
   </div>
 
@@ -98,7 +98,7 @@ document.addEventListener('click', (e) => {
   {{-- ISI UTAMA --}}
   <main class="relative flex-1 px-10 py-16 flex flex-col items-center">
     {{-- Ilustrasi kiri dan kanan --}}
-    <img src="{{ asset('images/orang menari cewe.png') }}" class="absolute left-0 bottom-0 w-72 opacity-90 pointer-events-none" alt="">
+    <img src="{{ asset('images/orang menari cewe.png') }}" class="absolute left-0 bottom-0 w-80 opacity-90 pointer-events-none" alt="">
     <img src="{{ asset('images/orang menari cowo.png') }}" class="absolute right-0 bottom-0 w-72 opacity-90 pointer-events-none" alt="">
 
     <div class="relative bg-white bg-opacity-80 backdrop-blur-sm rounded-2xl shadow-xl w-full max-w-6xl p-10 z-10">
