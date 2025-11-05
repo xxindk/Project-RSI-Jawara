@@ -50,10 +50,10 @@
              class="hidden absolute top-14 right-0 bg-white rounded-xl shadow-lg py-4 w-48 border border-gray-100 z-50">
             
             <!-- Profil -->
-            <a href="/profile" class="flex items-center px-5 py-2 hover:bg-gray-100 text-[#171717]">
-                <img src="{{ asset('images/Vector profil.png') }}" alt="Profil Icon" class="w-5 h-5 mr-3">
-                Profil
-            </a>
+            <a href="{{ route('profile') }}" class="flex items-center px-5 py-2 hover:bg-gray-100 text-[#171717]">
+    <img src="{{ asset('images/Vector profil.png') }}" alt="Profil Icon" class="w-5 h-5 mr-3">
+    Profil
+</a>
 
             <!-- Logout -->
             <form method="POST" action="{{ route('logout') }}">
