@@ -9,9 +9,12 @@ class Flashcard extends Model
 {
     use HasFactory;
 
+    protected $table = 'flashcards';      
+    protected $primaryKey = 'id_card';  
+    public $incrementing = true;  
+    protected $keyType = 'int';          
     protected $fillable = [
         'id_modul',
-        'id_card',
         'kata_indo',
         'kata_jawa',
     ];
