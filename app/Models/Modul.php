@@ -24,4 +24,9 @@ class Modul extends Model
     {
         return $this->hasOne(Materi::class, 'id_modul', 'id_modul');
     }
+    public function kuis()
+{
+    return $this->hasMany(Kuis::class, 'id_modul', 'id_modul');
+}
+
 }
