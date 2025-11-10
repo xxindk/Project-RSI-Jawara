@@ -1,0 +1,36 @@
+[33m0b6c8fb[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{0}: reset: moving to origin/main
+[33m2df9e61[m HEAD@{1}: commit: buat kuis
+[33m0053c10[m HEAD@{2}: pull origin main: Fast-forward
+[33mde4c1da[m HEAD@{3}: commit: ubah detail dikit
+[33mef73b79[m HEAD@{4}: commit: perbaikan dikit di paragraf materi
+[33me230f41[m HEAD@{5}: commit: perbaikan dikit di paragraf materi
+[33m0f00c22[m HEAD@{6}: pull origin main: Fast-forward
+[33md50229d[m HEAD@{7}: commit: fitur CRUD Materi Di admin bismillah fix
+[33m3add822[m HEAD@{8}: pull origin main: Fast-forward
+[33m721f0ea[m HEAD@{9}: pull origin main: Fast-forward
+[33m83fd25d[m HEAD@{10}: merge origin/main: Merge made by the 'ort' strategy.
+[33m8195a50[m HEAD@{11}: commit (merge): fitur CRUD Materi Di admin
+[33mbd17ae8[m HEAD@{12}: commit: fitur CRUD Materi Di admin
+[33m61ea9ed[m HEAD@{13}: pull origin main: Merge made by the 'ort' strategy.
+[33mff18411[m HEAD@{14}: commit: fitur CRUD Materi Di admin
+[33mee5e87e[m HEAD@{15}: pull origin main: Merge made by the 'ort' strategy.
+[33m07db280[m HEAD@{16}: commit: fitur CRUD Materi Di admin
+[33mf44b27b[m HEAD@{17}: commit: fitur CRUD Materi Di admin
+[33m13f543f[m HEAD@{18}: checkout: moving from main to main
+[33m13f543f[m HEAD@{19}: rebase (continue): fitur CRUD Materi Di admin
+[33m9cc134f[m HEAD@{20}: checkout: moving from 1bf5db4a08c8a0df1a714a972dfab700740cd606 to main
+[33m1bf5db4[m[33m ([m[1;32mfitur-crud-materi[m[33m)[m HEAD@{21}: rebase (continue): fitur CRUD Materi Di admin
+[33mfa2a91a[m HEAD@{22}: pull --rebase origin main (start): checkout fa2a91af9d633e99d7d3cfde26f2ff1066ab49f5
+[33m9cc134f[m HEAD@{23}: commit: fitur CRUD Materi Di admin
+[33ma59a7b8[m HEAD@{24}: commit: register dan login tapi tampilan udh mau jadi
+[33m92d679c[m HEAD@{25}: commit: register dan login tapi tampilan udh mau jadi
+[33mdf8be38[m HEAD@{26}: commit: register dan login tapi tampilan udh mau jadi
+[33md42c3a8[m HEAD@{27}: commit: register dan login tapi tampilan belum jadi
+[33mb7d043e[m HEAD@{28}: commit: register dan login tapi tampilan belum jadi
+[33ma9552ec[m HEAD@{29}: reset: moving to HEAD~1
+[33m73e64fa[m HEAD@{30}: commit: register dan login tapi tampilan belum jadi
+[33ma9552ec[m HEAD@{31}: commit: register dan login tapi tampilan belum jadi
+[33m74fae3a[m HEAD@{32}: commit: register dan login tapi tampilan belum jadi
+[33m54a8074[m HEAD@{33}: commit: register dan login tapi tampilan belum jadi
+[33m724a8b4[m HEAD@{34}: Branch: renamed refs/heads/master to refs/heads/main
+[33m724a8b4[m HEAD@{36}: commit (initial): Inisialisasi project jawara
