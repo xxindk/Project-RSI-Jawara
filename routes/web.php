@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FlashcardController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\KuisController;
 
 Route::get('/', function () {
     return redirect()->route('register');
@@ -86,4 +87,18 @@ Route::get('/user/materi/{id}', [MateriController::class, 'showUserMateri'])->na
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
 
-    
+
+    Route::get('/admin/kuis', [KuisController::class,'index'])->name('kuis.index');
+    Route::get('/admin/kuis/create', [KuisController::class,'create'])->name('kuis.create');
+    Route::post('/admin/kuis', [KuisController::class,'store'])->name('kuis.store');
+    Route::get('/admin/kuis/{id}/edit', [KuisController::class,'edit'])->name('kuis.edit');
+    Route::put('/admin/kuis/{id}', [KuisController::class,'update'])->name('kuis.update');
+    Route::delete('/admin/kuis/{id}', [KuisController::class,'destroy'])->name('kuis.destroy');
+
+
+    Route::get('/kuis/start/{id_modul}', [KuisController::class,'start'])->name('kuis.start'); // inisialisasi quiz (acakan)
+    Route::get('/kuis/play/{id_modul}', [KuisController::class,'play'])->name('kuis.play'); // tampil pertanyaan sekarang
+    Route::post('/kuis/answer/{id_modul}', [KuisController::class,'answer'])->name('kuis.answer'); // submit jawaban
+    Route::get('/kuis/hasil/{id_hasil}', [KuisController::class,'hasil'])->name('kuis.hasil'); // lihat hasil
+    Route::get('/kuis/retry/{id_modul}', [KuisController::class,'retry'])->name('kuis.retry'); // coba lagi
+

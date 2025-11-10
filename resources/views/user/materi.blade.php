@@ -71,7 +71,7 @@
         }
         .content {
             max-width: 900px;
-            margin: 40px auto;
+            margin: 40px auto 100px auto;
             background-color: white;
             padding: 30px;
             border-radius: 10px;
@@ -107,6 +107,26 @@
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
+        .start-wrapper {
+    text-align: center;
+    margin-top: 50px;
+}
+.start-btn {
+    background-color: #ff9f57;
+    border: none;
+    padding: 10px 24px;
+    color: white;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.start-btn:hover {
+    background-color: #e68a42;
+}
+
     </style>
 </head>
 <body>
@@ -140,11 +160,12 @@
         <div class="section">
             <h3>Materi</h3>
             <p>{!! nl2br(e($materi->konten_teks)) !!}</p>
-            @if(!empty($materi->konten_gambar))
-            <div class="image-container">
-                <img src="{{ asset('storage/' . $materi->konten_gambar) }}" alt="Gambar Materi">
             </div>
-            @endif
+
+         <div class="start-wrapper">
+            <form action="{{ route('kuis.start', $modul->id_modul) }}" method="GET">
+                <button type="submit" class="start-btn">Mulai Kuis</button>
+            </form>
         </div>
     </div>
 </body>

@@ -109,21 +109,24 @@ class MateriController extends Controller
     }
 
     public function destroy($id)
-    {
-        if (session('role') !== 'admin') {
-            return redirect('/login')->with('error', 'Anda harus login sebagai admin.');
-        }
+{
+    if (session('role') !== 'admin') {
+        return redirect('/login')->with('error', 'Anda harus login sebagai admin.');
+    }
 
-        $materi = Materi::with('modul')->findOrFail($id);
-        $materi->delete();
+    $materi = Materi::with('modul')->findOrFail($id);
+    
+    // Hapus modul, materi akan otomatis terhapus karena onDelete('cascade')
+    $materi->modul->delete();
 
-        if (Materi::count() === 0 && Modul::count() === 0) {
-    \DB::statement('ALTER TABLE materis AUTO_INCREMENT = 1;');
-    \DB::statement('ALTER TABLE moduls AUTO_INCREMENT = 1;');
+    if (Materi::count() === 0 && Modul::count() === 0) {
+        \DB::statement('ALTER TABLE materis AUTO_INCREMENT = 1;');
+        \DB::statement('ALTER TABLE moduls AUTO_INCREMENT = 1;');
+    }
+
+    return redirect()->route('materi.index')->with('success', 'Materi dan modul berhasil dihapus.');
 }
 
-        return redirect()->route('materi.index')->with('success', 'Materi berhasil dihapus.');
-    }
 
     // =========================
     // Halaman Pengguna (baca saja)
