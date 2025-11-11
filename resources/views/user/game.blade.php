@@ -14,7 +14,7 @@
 
   <style>
     body {
-      background-color: #FFF7F0;
+      background-color: #faf3e0;
       font-family: 'Inter', sans-serif;
     }
     .font-maragsa {
