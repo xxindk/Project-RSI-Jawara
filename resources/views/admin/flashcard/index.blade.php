@@ -177,7 +177,7 @@
             <li><a href="{{ route('materi.index') }}"><i class="fa-solid fa-book"></i> Materi</a></li>
             <li><a href="#"><i class="fa-solid fa-list-check"></i> Kuis</a></li>
             <li><a href="{{ route('flashcards.index') }}"><i class="fa-solid fa-clone"></i> Flashcard</a></li>
-            <li><a href="#"><i class="fa-solid fa-gamepad"></i> Game</a></li>
+            <li><a href="{{ route('game.index') }}"><i class="fa-solid fa-gamepad"></i> Game</a></li>
         </ul>
 
     <div class="logout">
