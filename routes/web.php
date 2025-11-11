@@ -52,7 +52,12 @@ Route::put('/admin/game/{id}', [GameController::class, 'update'])->name('game.up
 Route::delete('/admin/game/{id}', [GameController::class, 'destroy'])->name('game.destroy'); // hapus kartu
 
 // ===== USER =====
+// Semua kartu (user)
+Route::get('/game', [GameController::class, 'showForUser'])->name('game.user.all');
+
+// Kartu per modul (user)
 Route::get('/game/modul/{modulId}', [GameController::class, 'showByModule'])->name('game.showByModule');
+
 
 Route::get('/reflection', function () {
     return view('reflection');

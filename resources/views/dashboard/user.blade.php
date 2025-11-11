@@ -172,7 +172,8 @@
                              class="bg-[#F4A261] text-white text-sm px-3 py-1 rounded-full hover:bg-[#3A7773] transition">
                              Flashcard
                           </a>
-                        <a href="#" onclick="alert('Fitur Game belum tersedia.'); return false;"
+                        <!-- Tombol Game -->
+                        <a href= "{{ route('game.showByModule', $modul->id_modul) }}"
                            class="bg-[#F4A261] text-white text-sm px-3 py-1 rounded-full hover:bg-[#3A7773] transition">
                            Game
                         </a>
