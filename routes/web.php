@@ -46,6 +46,7 @@ Route::put('/flashcard/{flashcard}', [FlashcardController::class, 'update'])->na
 Route::delete('/flashcard/{flashcard}', [FlashcardController::class, 'destroy'])->name('flashcard.destroy');
 Route::get('/flashcard-user', [FlashcardController::class, 'showForUser'])->name('flashcard.user');
 
+ Route::resource('game', GameController::class);
 Route::get('/admin/game', [GameController::class, 'index'])->name('game.index');       // admin list kartu
 Route::post('/admin/game', [GameController::class, 'store'])->name('game.store');      // tambah kartu
 Route::put('/admin/game/{id}', [GameController::class, 'update'])->name('game.update');// edit kartu

@@ -32,20 +32,26 @@ class GameController extends Controller
     {
         $request->validate([
             'id_modul' => 'required|integer',
-            'id_card'  => 'required|integer',
             'word'     => 'required|string|max:255',
             'pair_id'  => 'required|integer',
         ]);
 
-        $card = MemoryCard::findOrFail($id);
-        $card->update($request->only(['id_modul','id_card','word','pair_id']));
+        // Cari berdasarkan id_card, bukan id
+        $card = MemoryCard::where('id_card', $id)->firstOrFail();
+
+        $card->update($request->only(['id_modul','word','pair_id']));
 
         return redirect()->route('game.index')->with('success', 'Kartu berhasil diperbarui.');
     }
 
     public function destroy($id)
     {
-        MemoryCard::findOrFail($id)->delete();
+        // Cari berdasarkan id_card
+        $card = MemoryCard::where('id_card', $id)->firstOrFail();
+
+        // Hapus kartu
+        $card->delete();
+
         return redirect()->route('game.index')->with('success', 'Kartu berhasil dihapus.');
     }
 
