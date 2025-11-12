@@ -68,9 +68,12 @@ class FlashcardController extends Controller
 
 public function showByModule($modulId)
 {
-    $flashcards = Flashcard::where('id_modul', $modulId)->get();
-    return view('user.flashcard', compact('flashcards', 'modulId'));
+    $flashcards = \App\Models\Flashcard::where('id_modul', $modulId)->get();
 
+    // ✅ Tambahkan ini agar progress tersimpan
+    \App\Http\Controllers\ProgressController::saveProgress($modulId, 'sedang');
+
+    return view('user.flashcard', compact('flashcards', 'modulId'));
 }
 
 }

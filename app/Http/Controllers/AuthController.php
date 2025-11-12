@@ -10,16 +10,25 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
+    /** 
+     * Tampilkan halaman register
+     */
     public function showRegisterForm()
     {
         return view('auth.register');
     }
 
+    /**
+     * Tampilkan halaman login
+     */
     public function showLoginForm()
     {
         return view('auth.login');
     }
 
+    /**
+     * Proses registrasi user baru
+     */
     public function register(Request $request)
     {
         $request->validate([
@@ -31,12 +40,15 @@ class AuthController extends Controller
         Pengguna::create([
             'nama' => $request->nama,
             'email' => $request->email,
-            'password' => Hash::make($request->password)
+            'password' => Hash::make($request->password),
         ]);
 
-        return redirect('/login')->with('success', 'Registrasi berhasil! Silakan login.');
+        return redirect()->route('login')->with('success', 'Registrasi berhasil! Silakan login.');
     }
 
+    /**
+     * Proses login untuk admin atau user
+     */
     public function login(Request $request)
     {
         $request->validate([
@@ -55,18 +67,25 @@ class AuthController extends Controller
         $user = Pengguna::where('email', $request->email)->first();
         if ($user && Hash::check($request->password, $user->password)) {
             session(['role' => 'user', 'nama' => $user->nama]);
-            return redirect('/dashboard-user');
+            return redirect()->route('user.dashboard');
         }
 
-        return back()->withErrors(['email' => 'Email atau password salah']);
+        return back()->withErrors(['email' => 'Email atau password salah.']);
     }
 
+    /**
+     * Logout dan arahkan ke halaman login
+     */
     public function logout(Request $request)
     {
-        // Hapus semua data session
+        // Logout jika menggunakan Auth bawaan Laravel
+        Auth::logout();
+
+        // Hapus semua data session (baik user maupun admin)
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect()->route('login');
+        // Redirect ke halaman login
+        return redirect()->route('login')->with('success', 'Anda telah logout.');
     }
 }

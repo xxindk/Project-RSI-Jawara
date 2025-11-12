@@ -142,15 +142,19 @@ class MateriController extends Controller
         return view('dashboard.user-materi', compact('materis'));
     }
 
-    public function showUserMateri($id)
-    {
-        if (session('role') !== 'user') {
-            return redirect('/login')->with('error', 'Anda harus login sebagai pengguna.');
-        }
-
-        $modul = Modul::findOrFail($id);
-        $materi = Materi::where('id_modul', $modul->id_modul)->first();
-
-        return view('user.materi', compact('modul', 'materi'));
+public function showUserMateri($id)
+{
+    if (session('role') !== 'user') {
+        return redirect('/login')->with('error', 'Anda harus login sebagai pengguna.');
     }
+
+    $modul = \App\Models\Modul::findOrFail($id);
+    $materi = \App\Models\Materi::where('id_modul', $modul->id_modul)->first();
+
+    // ✅ Tambahkan baris ini untuk mencatat progress
+    \App\Http\Controllers\ProgressController::saveProgress($modul->id_modul, 'sedang');
+
+    return view('user.materi', compact('modul', 'materi'));
+}
+
 }

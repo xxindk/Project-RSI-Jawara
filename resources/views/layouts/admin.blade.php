@@ -14,11 +14,13 @@
       font-family: 'Playfair Display', serif;
     }
 
+
         body {
             margin: 0;
             font-family: 'Inter', sans-serif;
             background-color: #FFF7F0;
         }
+
 
         /* ===== SIDEBAR ===== */
         .sidebar {
@@ -34,6 +36,7 @@
             align-items: center;
         }
 
+
         .sidebar h1 {
             margin-top: 30px;
             font-size: 22px;
@@ -41,10 +44,12 @@
             letter-spacing: 1px;
         }
 
+
         .profile {
             margin-top: 25px;
             text-align: center;
         }
+
 
         .profile img {
             width: 85px;
@@ -53,16 +58,19 @@
             object-fit: cover;
         }
 
+
         .profile h3 {
             margin: 10px 0 3px 0;
             font-size: 15px;
             font-weight: 600;
         }
 
+
         .profile small {
             font-size: 12px;
             color: #E5D3C5;
         }
+
 
         .menu {
             list-style: none;
@@ -71,9 +79,11 @@
             width: 100%;
         }
 
+
         .menu li {
             width: 100%;
         }
+
 
         .menu a {
             display: flex;
@@ -85,19 +95,23 @@
             transition: background 0.2s;
         }
 
+
         .menu a:hover {
             background-color: #A7826B;
         }
+
 
         .menu i {
             margin-right: 10px;
             font-size: 16px;
         }
 
+
         .logout {
             margin-top: auto;
             margin-bottom: 30px;
         }
+
 
         /* ===== KONTEN ===== */
         .content {
@@ -108,6 +122,7 @@
         }
     </style>
 </head>
+
 
 <body>
     <div class="sidebar">
@@ -122,6 +137,7 @@
             <small>Admin</small>
         </div>
 
+
         <ul class="menu">
             <li><a href="{{ route('materi.index') }}"><i class="fa-solid fa-book"></i> Materi</a></li>
             <li><a href="{{ route('kuis.index') }}"><i class="fa-solid fa-list-check"></i> Kuis</a></li>
@@ -129,15 +145,23 @@
             <li><a href="#"><i class="fa-solid fa-gamepad"></i> Game</a></li>
         </ul>
 
-        <div class="logout">
-            <a href="{{ route('logout') }}" style="color:white; text-decoration:none; display:flex; align-items:center; justify-content:center;">
-                <i class="fa-solid fa-right-from-bracket" style="margin-right:8px;"></i> Logout
-            </a>
-        </div>
-    </div>
 
-    <div class="content">
-        @yield('content')
-    </div>
+<div class="logout">
+    <form method="POST" action="{{ route('logout') }}" style="margin: 0;">
+        @csrf
+        <button type="submit"
+                style="background:none; border:none; color:white; font-size:15px; display:flex; align-items:center; justify-content:center; cursor:pointer; width:100%;">
+            <i class="fa-solid fa-right-from-bracket" style="margin-right:8px;"></i> Logout
+        </button>
+    </form>
+</div>
+
+
+</div> <!-- ✅ Tambahkan ini untuk menutup .sidebar -->
+
+
+<div class="content">
+    @yield('content')
+</div>
 </body>
 </html>
