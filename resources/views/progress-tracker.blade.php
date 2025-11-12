@@ -123,7 +123,7 @@
             <tbody>
               @foreach($moduls as $index => $modul)
                 @php
-                $progress = $progressData->firstWhere('modul_id', $modul->id_modul);
+                $progress = $progressData->firstWhere('id_modul', $modul->id_modul);
                 @endphp
                 <tr class="text-gray-700">
                   <td class="px-4 py-3 border-b">{{ $index + 1 }}</td>

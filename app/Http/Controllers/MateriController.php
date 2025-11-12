@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Materi;
 use App\Models\Modul;
 use Illuminate\Http\Request;
+use App\Http\Controllers\ProgressController;
 
 class MateriController extends Controller
 {
@@ -151,10 +152,14 @@ public function showUserMateri($id)
     $modul = \App\Models\Modul::findOrFail($id);
     $materi = \App\Models\Materi::where('id_modul', $modul->id_modul)->first();
 
-    // ✅ Tambahkan baris ini untuk mencatat progress
-    \App\Http\Controllers\ProgressController::saveProgress($modul->id_modul, 'sedang');
+    // ✅ Simpan progress ketika user membuka materi
+        ProgressController::saveProgress($modul->id_modul, 'sedang');
 
-    return view('user.materi', compact('modul', 'materi'));
+        // (opsional) Jika user sudah sampai akhir halaman materi
+        // panggil ini untuk menandai selesai:
+        ProgressController::saveProgress($modul->id_modul, 'selesai');
+
+        return view('user.materi', compact('modul', 'materi'));
 }
 
 }

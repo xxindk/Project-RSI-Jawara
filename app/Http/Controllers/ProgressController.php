@@ -28,9 +28,9 @@ class ProgressController extends Controller
 
         // Hitung persentase progress
         $totalModul = $moduls->count();
-        $totalProgress = $progressData->count();
+        $totalSelesai = $progressData->where('status', 'selesai')->count();
         $progressPercentage = $totalModul > 0
-            ? round(($totalProgress / $totalModul) * 100, 0)
+            ? round(($totalSelesai / $totalModul) * 100, 0)
             : 0;
 
         return view('progress-tracker', compact('moduls', 'progressData', 'progressPercentage'));

@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Models\Pengguna;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\ProgressController;
 
 class KuisController extends Controller
 {
@@ -216,12 +217,9 @@ class KuisController extends Controller
             ]);
         }
 
-        // ✅ Tambahkan progress update di sini
-        // bersihkan session untuk modul ini
+        // ✅ Simpan progress jadi selesai
         session()->forget("quiz.{$id_modul}");
-
-        // ✅ update status progress jadi selesai
-        \App\Http\Controllers\ProgressController::saveProgress($id_modul, 'selesai');
+        ProgressController::saveProgress($id_modul, 'selesai');
 
         return redirect()->route('kuis.hasil', $hasil->id_hasil);
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\MemoryCard;
+use App\Http\Controllers\ProgressController;
 
 class GameController extends Controller
 {
@@ -65,6 +66,10 @@ class GameController extends Controller
     public function showByModule($modulId)
     {
         $cards = MemoryCard::where('id_modul', $modulId)->get();
+
+        // ✅ Simpan progress saat game dimainkan
+        ProgressController::saveProgress($modulId, 'selesai');
+
         return view('user.game', compact('cards', 'modulId'));
     }
 }

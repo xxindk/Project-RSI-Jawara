@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Flashcard;
 use Illuminate\Http\Request;
+use App\Http\Controllers\ProgressController;
 
 class FlashcardController extends Controller
 {
@@ -68,12 +69,12 @@ class FlashcardController extends Controller
 
 public function showByModule($modulId)
 {
-    $flashcards = \App\Models\Flashcard::where('id_modul', $modulId)->get();
+    $flashcards = Flashcard::where('id_modul', $modulId)->get();
 
-    // ✅ Tambahkan ini agar progress tersimpan
-    \App\Http\Controllers\ProgressController::saveProgress($modulId, 'sedang');
+        // ✅ Simpan progress saat user belajar flashcard
+        ProgressController::saveProgress($modulId, 'selesai');
 
-    return view('user.flashcard', compact('flashcards', 'modulId'));
-}
+        return view('user.flashcard', compact('flashcards', 'modulId'));
+    }
 
 }
