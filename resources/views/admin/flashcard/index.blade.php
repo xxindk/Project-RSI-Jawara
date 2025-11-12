@@ -175,14 +175,29 @@
 
       <ul class="menu">
             <li><a href="{{ route('materi.index') }}"><i class="fa-solid fa-book"></i> Materi</a></li>
-            <li><a href="#"><i class="fa-solid fa-list-check"></i> Kuis</a></li>
+            <li><a href="{{ route('kuis.index') }}"><i class="fa-solid fa-list-check"></i> Kuis</a></li>
             <li><a href="{{ route('flashcards.index') }}"><i class="fa-solid fa-clone"></i> Flashcard</a></li>
             <li><a href="{{ route('game.index') }}"><i class="fa-solid fa-gamepad"></i> Game</a></li>
         </ul>
 
     <div class="logout">
-      <a href="{{ route('logout') }}" style="color:white; text-decoration:none; display:flex; align-items:center; justify-content:center;">
-        <i class="fa-solid fa-right-from-bracket" style="margin-right:8px;"></i> Logout
+      <a href="#" 
+     onclick="event.preventDefault(); document.getElementById('logout-form').submit();" 
+     style="
+        color: white; 
+        text-decoration: none; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        font-size: 15px; 
+        width: 100%;
+        cursor: pointer;
+     ">
+    <i class="fa-solid fa-right-from-bracket" style="margin-right:8px;"></i> Logout
+  </a>
+       <form id="logout-form" action="{{ route('logout') }}" method="POST" style="color:white; text-decoration:none; display:flex; align-items:center; justify-content:center;">
+          @csrf
+      </form>
       </a>
     </div>
   </div>
