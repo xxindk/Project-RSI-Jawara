@@ -20,12 +20,12 @@
 <nav class="flex justify-between items-center px-12 py-6 bg-[#FFF7F0] w-full">
   <div class="text-3xl font-maragsa text-[#9A3B1B]">JAWARA</div>
 
-  <ul class="hidden md:flex gap-10 text-[#171717] font-medium">
-    <li><a href="/dashboard-user" class="hover:text-[#4C9894] {{ request()->is('dashboard-user') ? 'text-[#4C9894]' : '' }}">Home</a></li>
-    <li><a href="/materi" class="hover:text-[#4C9894] {{ request()->is('materi') ? 'text-[#4C9894]' : '' }}">Modul</a></li>
-    <li><a href="#" class="hover:text-[#4C9894]">Progress Tracker</a></li>
-    <li><a href="#" class="hover:text-[#4C9894]">Narahubung</a></li>
-  </ul>
+    <ul class="hidden md:flex gap-10 text-[#171717] font-medium">
+      <li><a href="{{ url('/dashboard-user') }}" class="hover:text-[#4C9894]">Home</a></li>
+      <li><a href="{{ url('/dashboard-user') }}" class="hover:text-[#4C9894]">Modul</a></li>
+      <li><a href="{{ route('progress.index') }}" class="hover:text-[#4C9894]">Progress Tracker</a></li>
+      <li><a href="{{ route('reflection.list') }}" class="hover:text-[#4C9894]">Riwayat Refleksi</a></li>
+    </ul>
 
   <div class="flex items-center space-x-4 relative">
     <img src="{{ asset('images/profil user.png') }}" alt="User Avatar" class="w-10 h-10 rounded-full border border-gray-300">

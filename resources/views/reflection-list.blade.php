@@ -36,12 +36,12 @@
   </div>
 
   <!-- Menu Tengah -->
-  <ul class="hidden md:flex gap-10 text-[#171717] font-medium">
-      <li><a href="#" class="hover:text-[#4C9894]">Home</a></li>
-      <li><a href="#" class="hover:text-[#4C9894]">Modul</a></li>
+    <ul class="hidden md:flex gap-10 text-[#171717] font-medium">
+      <li><a href="{{ url('/dashboard-user') }}" class="hover:text-[#4C9894]">Home</a></li>
+      <li><a href="{{ url('/dashboard-user') }}" class="hover:text-[#4C9894]">Modul</a></li>
       <li><a href="{{ route('progress.index') }}" class="hover:text-[#4C9894]">Progress Tracker</a></li>
       <li><a href="{{ route('reflection.list') }}" class="hover:text-[#4C9894]">Riwayat Refleksi</a></li>
-  </ul>
+    </ul>
 
   <!-- Profil + Garis-Tiga -->
   <div class="flex items-center space-x-4 relative">

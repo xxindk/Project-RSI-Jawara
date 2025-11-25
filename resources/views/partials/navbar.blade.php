@@ -17,10 +17,10 @@
 
     <!-- Menu Tengah -->
     <ul class="hidden md:flex gap-10 text-[#171717] font-medium">
-        <li><a href="/home" class="hover:text-[#4C9894] {{ request()->is('home') ? 'text-[#4C9894]' : '' }}">Home</a></li>
-        <li><a href="/modul" class="hover:text-[#4C9894] {{ request()->is('modul') ? 'text-[#4C9894]' : '' }}">Modul</a></li>
-        <li><a href="/progress" class="hover:text-[#4C9894] {{ request()->is('progress') ? 'text-[#4C9894]' : '' }}">Progress Tracker</a></li>
-        <li><a href="/narahubung" class="hover:text-[#4C9894] {{ request()->is('narahubung') ? 'text-[#4C9894]' : '' }}">Narahubung</a></li>
+      <li><a href="{{ url('/dashboard-user') }}" class="hover:text-[#4C9894]">Home</a></li>
+      <li><a href="{{ url('/dashboard-user') }}" class="hover:text-[#4C9894]">Modul</a></li>
+      <li><a href="{{ route('progress.index') }}" class="hover:text-[#4C9894]">Progress Tracker</a></li>
+      <li><a href="{{ route('reflection.list') }}" class="hover:text-[#4C9894]">Riwayat Refleksi</a></li>
     </ul>
 
     <!-- Profil + Garis Tiga -->
